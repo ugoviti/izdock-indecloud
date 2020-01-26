@@ -3,10 +3,10 @@ FROM nikolaik/python-nodejs:python3.8-nodejs10
 MAINTAINER Christopher Viola <christopher.viola@initzero.it>
 
 # default versions
-ARG tag_ver_major=10
-ARG tag_ver_minor=17
-ARG tag_ver_patch=0
-ARG tag_ver=${tag_ver_major}.${tag_ver_minor}.${tag_ver_patch}
+ARG APP_VER_MAJOR=10
+ARG APP_VER_MINOR=17
+ARG APP_VER_PATCH=0
+ARG APP_VER=${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH}
 
 # default app configuration variables
 ENV APP_HOME_DEFAULT      "/opt/inde"
