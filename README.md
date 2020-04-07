@@ -1,5 +1,3 @@
-[![Build Status](https://ci.initzero.it/api/badges/initzero/izdock-nodejs-inde/status.svg)](https://ci.initzero.it/initzero/izdock-nodejs-inde)
-
 # Description
 Production ready NODEJS + InDe IDServer + CloudConnector
 
