@@ -14,7 +14,7 @@
 : ${SSL_CERT:=""}
 : ${SSL_KEY:=""}
 : ${SSL_BUNDLE:=""}
-: ${NODE_APP_NAME:=inde-self}
+: ${NODE_APP_NAME:=instant-developer-platform}
 : ${NODE_APP_HOME:=$APP_DATA/$NODE_APP_NAME}
 : ${NODE_SERVER_CONF:=$APP_CONF/config.json}
 : ${NODE_SERVER_DIR:=$NODE_APP_HOME/server}

@@ -1,11 +1,11 @@
-FROM nikolaik/python-nodejs:python3.8-nodejs10
+FROM nikolaik/python-nodejs:python3.8-nodejs12
 
 MAINTAINER Christopher Viola <christopher.viola@initzero.it>
 
 # default versions
-ARG APP_VER_MAJOR=10
-ARG APP_VER_MINOR=17
-ARG APP_VER_PATCH=0
+ARG APP_VER_MAJOR=20
+ARG APP_VER_MINOR=0
+ARG APP_VER_PATCH=4
 ARG APP_VER=${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH}
 
 # default app configuration variables
@@ -22,7 +22,7 @@ ENV APP_DATA              "${APP_DATA_DEFAULT}"
 ENV APP_USR               "indert"
 
 # node application name
-ENV NODE_APP_NAME    "inde-self"
+ENV NODE_APP_NAME    ""
 # node deploy home
 ENV NODE_APP_HOME    ""
 # node application server directory
@@ -69,13 +69,12 @@ RUN set -ex && \
   mkdir -p ${APP_DATA} ${APP_CONF} && \
   : "---------- Installing InDe Self ----------" && \
   cd /usr/src && \
-  #git clone https://github.com/progamma/inde-self.git && \
-  git clone https://github.com/initzero-it/inde-self && \
-  cd inde-self/public_html && \
+  git clone https://github.com/initzero-it/instant-developer-platform && \
+  cd instant-developer-platform/public_html && \
   mkdir data appDirectory log && \
   npm install && npm audit fix --force && \
   cd .. && \
-  mv public_html ${APP_DATA}/inde-self && \
+  mv public_html ${APP_DATA}/instant-developer-platform && \
   : "---------- Installing InDe Cloud Connector ----------" && \
   cd /usr/src && \
   git clone https://github.com/progamma/cloud-connector.git && \
@@ -89,6 +88,8 @@ RUN set -ex && \
   rm -rf /usr/src/* && \
   : "---------- END Installing InDe Apps ----------"
 
+#git clone https://github.com/progamma/instant-developer-platform.git && \
+  
 # define volumes
 VOLUME ["${APP_HOME}","${APP_CONF}"]
 
