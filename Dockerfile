@@ -100,7 +100,7 @@ EXPOSE 8081/tcp 8082/tcp
 ADD filesystem /
 
 # add local files to container
-ADD Dockerfile VERSION README.md /
+ADD Dockerfile README.md /
   
 # become unprivileged user
 USER ${APP_USR}
