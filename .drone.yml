@@ -1,6 +1,19 @@
 kind: pipeline
 name: indecloud
 
+environment:
+  APP_VER: 20.0.4
+  APP_VER_BUILD: "${DRONE_BUILD_NUMBER}"
+  APP_BUILD_COMMIT: "${DRONE_COMMIT_SHA:0:7}"
+  APP_BUILD_DATE: "${DRONE_BUILD_FINISHED}"
+
+trigger:
+  event:
+  - push
+  - tag
+  branch:
+  - master
+  
 volumes:
   - name: docker
     host:
@@ -9,10 +22,6 @@ volumes:
 steps:
 - name: setup
   image: alpine
-  environment: &setup_env
-    APP_VER_MAJOR: 20
-    APP_VER_MINOR: 0
-    APP_VER_PATCH: 4
   commands:
     - echo -e -n "$${APP_VER_MAJOR}.$${APP_VER_MINOR}.$${APP_VER_PATCH}-$${DRONE_BUILD_NUMBER}" > VERSION
     - echo -e -n "$${APP_VER_MAJOR}" > .tags
@@ -23,8 +32,6 @@ steps:
 
 - name: publish
   image: plugins/docker
-  environment:
-    <<: *setup_env
   settings:
     repo: izdock/indecloud
     username:
@@ -34,6 +41,3 @@ steps:
   volumes:
   - name: docker
     path: /var/lib/docker
-  when:
-    event: [push, tag]
-    branch: master

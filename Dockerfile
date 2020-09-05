@@ -3,10 +3,11 @@ FROM nikolaik/python-nodejs:python3.8-nodejs12
 MAINTAINER Christopher Viola <christopher.viola@initzero.it>
 
 # default versions
-ARG APP_VER_MAJOR=20
-ARG APP_VER_MINOR=0
-ARG APP_VER_PATCH=4
-ARG APP_VER=${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH}
+#ARG APP_VER_MAJOR=20
+#ARG APP_VER_MINOR=0
+#ARG APP_VER_PATCH=4
+#ARG APP_VER=${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH}
+ARG APP_VER=20.0.4
 
 # default app configuration variables
 ENV APP_HOME_DEFAULT      "/opt/inde"
