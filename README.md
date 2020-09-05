@@ -2,7 +2,7 @@
 Production ready NODEJS + InDe IDServer + CloudConnector
 
 # Supported tags
--	`10.17.X-BUILD`, `10.17.X`, `10.17`, `10`, `latest`
+-	`20.0.X-BUILD`, `20.0.X`, `20.0`, `20`, `latest`
 
 Where **X** is the patch version number, and **BUILD** is the build number (look into project [Tags](/repository/docker/izdock/nodejs-inde/tags/) page to discover the latest versions)
 
