@@ -34,6 +34,11 @@ steps:
   image: plugins/docker
   settings:
     repo: izdock/indecloud
+    build_args_from_env:
+    - APP_VER
+    - APP_VER_BUILD
+    - APP_BUILD_COMMIT
+    - APP_BUILD_DATE
     username:
       from_secret: DOCKER_USERNAME
     password:
