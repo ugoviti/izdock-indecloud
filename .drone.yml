@@ -1,5 +1,5 @@
 kind: pipeline
-name: default
+name: indecloud
 
 volumes:
   - name: docker
@@ -26,7 +26,7 @@ steps:
   environment:
     <<: *setup_env
   settings:
-    repo: izdock/nodejs-inde
+    repo: izdock/indecloud
     username:
       from_secret: DOCKER_USERNAME
     password:
