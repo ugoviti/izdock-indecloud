@@ -20,14 +20,14 @@ volumes:
       path: /var/cache/drone/${DRONE_REPO}/${DRONE_STAGE_NAME}
 
 steps:
-- name: setup
+- name: tags
   image: alpine
   commands:
-    - echo -e -n "$${APP_VER_MAJOR}.$${APP_VER_MINOR}.$${APP_VER_PATCH}-$${DRONE_BUILD_NUMBER}" > VERSION
-    - echo -e -n "$${APP_VER_MAJOR}" > .tags
-    - echo -e -n ",$${APP_VER_MAJOR}.$${APP_VER_MINOR}" >> .tags
-    - echo -e -n ",$${APP_VER_MAJOR}.$${APP_VER_MINOR}.$${APP_VER_PATCH}" >> .tags
-    - echo -e -n ",$${APP_VER_MAJOR}.$${APP_VER_MINOR}.$${APP_VER_PATCH}-$${DRONE_BUILD_NUMBER}" >> .tags
+    - echo -e -n "dev-$${APP_VER}-$${DRONE_COMMIT_SHA:0:7}" >> .tags
+    - echo -e -n ",dev-$${APP_VER}-$${DRONE_BUILD_NUMBER}" >> .tags
+    - echo -e -n ",dev-$${APP_VER}" >> .tags
+    - echo -e -n ",dev-$${APP_VER%%.*}" >> .tags
+    - echo -e -n ",dev-$${APP_VER%.*}" >> .tags
     - echo -e -n ",latest" >> .tags
 
 - name: publish
